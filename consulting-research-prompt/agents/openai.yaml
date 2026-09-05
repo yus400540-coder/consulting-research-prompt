@@ -1,0 +1,4 @@
+interface:
+  display_name: "Consulting Research Prompt"
+  short_description: "将公司和咨询问题转成待审核研究提示词"
+  default_prompt: "Use $consulting-research-prompt with a company name and consulting question to generate a human-reviewable HTML brief and Markdown prompt."

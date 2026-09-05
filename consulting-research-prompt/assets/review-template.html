@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{TITLE}}</title>
+    <style>
+      :root { color-scheme: light; font-family: system-ui, sans-serif; color: #172033; background: #f5f7fb; }
+      body { margin: 0; line-height: 1.55; }
+      main { max-width: 70rem; margin: auto; padding: 1.5rem; }
+      .banner { margin: 0 0 1.5rem; padding: 1rem; border: 2px solid #8d3200; background: #fff1e8; color: #5b2100; }
+      section { margin: 1rem 0; padding: 1rem; border-radius: .5rem; background: #fff; box-shadow: 0 1px 3px #17203320; }
+      h1, h2 { line-height: 1.2; } h2 { font-size: 1.15rem; } table { width: 100%; border-collapse: collapse; overflow-wrap: anywhere; }
+      th, td { padding: .5rem; border: 1px solid #bbc3d1; text-align: left; vertical-align: top; } th { background: #e9edf5; }
+      pre { padding: 1rem; overflow-x: auto; white-space: pre-wrap; background: #111827; color: #f9fafb; }
+      button { padding: .6rem .9rem; font: inherit; cursor: pointer; }
+      @media (max-width: 40rem) { main { padding: .75rem; } th, td { min-width: 8rem; } }
+      @media print { :root, body { background: #fff; } main { max-width: none; padding: 0; } section { box-shadow: none; border: 1px solid #777; } button { display: none; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>咨询研究提示审核</h1>
+        <p class="banner" role="status"><strong>需要人工审核</strong>：此包仅供人工审阅，不会自动执行研究。</p>
+      </header>
+      {{REVIEW_CONTENT}}
+      <section aria-labelledby="prompt-heading">
+        <h2 id="prompt-heading">执行提示（原文）</h2>
+        <button type="button" id="copy-prompt">复制执行提示</button>
+        <pre id="execution-prompt">{{EXECUTION_PROMPT}}</pre>
+      </section>
+    </main>
+    <script>
+      document.getElementById('copy-prompt').addEventListener('click', function () {
+        navigator.clipboard.writeText(document.getElementById('execution-prompt').textContent);
+      });
+    </script>
+  </body>
+</html>
